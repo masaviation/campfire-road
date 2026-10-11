@@ -1,20 +1,23 @@
 import type { Config } from 'tailwindcss';
 
+// Brand values are defined once in public/styles/tokens.css; this only maps them to Tailwind classes.
+const token = (name: string) => `rgb(var(--color-${name}) / <alpha-value>)`;
+
 const config: Config = {
   content: ['./app/**/*.{js,ts,jsx,tsx,mdx}', './components/**/*.{js,ts,jsx,tsx,mdx}'],
   theme: {
     extend: {
       colors: {
         brand: {
-          DEFAULT: '#69727d',
-          accent: '#5bc0de',
+          DEFAULT: token('brand'),
+          accent: token('brand-accent'),
         },
-        surface: '#ffffff',
-        ink: '#69727d',
+        surface: token('surface'),
+        ink: token('ink'),
       },
       fontFamily: {
-        heading: ['Montserrat', 'ui-sans-serif', 'system-ui', 'sans-serif'],
-        body: ['Open Sans', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+        heading: ['var(--font-heading)'],
+        body: ['var(--font-body)'],
       },
     },
   },

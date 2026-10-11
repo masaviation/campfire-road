@@ -1,0 +1,26 @@
+/*
+ * Campfire Road design tokens: the single source of truth for brand styling.
+ *
+ * Used by both halves of the site:
+ *   - Static marketing pages: <link rel="stylesheet" href="/styles/tokens.css">
+ *   - Next.js booking app: imported by app/globals.css and mapped to Tailwind
+ *     classes in tailwind.config.ts (bg-brand, text-ink, font-heading, ...)
+ *
+ * Colors are space-separated RGB channels so Tailwind opacity modifiers work
+ * (text-ink/80). In plain CSS, use them as rgb(var(--color-ink)) or
+ * rgb(var(--color-ink) / 0.8).
+ */
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Open+Sans:wght@400;600&display=swap');
+
+:root {
+  /* Colors */
+  --color-brand: 105 114 125;        /* #69727d */
+  --color-brand-accent: 91 192 222;  /* #5bc0de */
+  --color-ink: 105 114 125;          /* #69727d, body text */
+  --color-surface: 255 255 255;      /* #ffffff, page background */
+
+  /* Fonts */
+  --font-heading: 'Montserrat', ui-sans-serif, system-ui, sans-serif;
+  --font-body: 'Open Sans', ui-sans-serif, system-ui, sans-serif;
+}

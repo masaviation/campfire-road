@@ -29,11 +29,18 @@ Commands: `npm install`, `npm run dev`, `npm run build`, `npm run lint`.
 
 ## Styling
 
-Brand tokens live in `tailwind.config.ts`. Use them rather than hard-coded values, and keep any
-plain CSS for static pages in sync with them.
+All brand values are defined once in `public/styles/tokens.css` as CSS variables. Change colors and
+fonts there and nowhere else. Never hard-code a brand color or font.
 
-- Colors: `brand` #69727d, `brand-accent` #5bc0de, `ink` #69727d, `surface` #ffffff
-- Fonts: Montserrat for headings (`font-heading`), Open Sans for body (`font-body`)
+- Static HTML pages: `<link rel="stylesheet" href="/styles/tokens.css">`, then use `rgb(var(--color-ink))`
+  and `var(--font-heading)` in CSS
+- Next.js app: `app/globals.css` imports the tokens and `tailwind.config.ts` maps them to classes
+  (`bg-brand`, `text-brand-accent`, `text-ink/80`, `bg-surface`, `font-heading`, `font-body`)
+- Colors are stored as RGB channels (`105 114 125`) so Tailwind opacity modifiers work
+- To add a token: add the variable to `tokens.css`, then map it in `tailwind.config.ts`
+
+Current values: brand #69727d, brand-accent #5bc0de, ink #69727d, surface #ffffff, Montserrat for
+headings, Open Sans for body. These are the template defaults and not yet a final brand palette.
 
 ## Secrets and environment
 
