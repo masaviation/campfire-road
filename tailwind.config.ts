@@ -12,8 +12,13 @@ const config: Config = {
           DEFAULT: token('brand'),
           accent: token('brand-accent'),
         },
+        highlight: token('highlight'),
+        soft: token('soft'),
         surface: token('surface'),
         ink: token('ink'),
+      },
+      borderRadius: {
+        brand: 'var(--radius)',
       },
       fontFamily: {
         heading: ['var(--font-heading)'],

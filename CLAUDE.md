@@ -35,12 +35,24 @@ fonts there and nowhere else. Never hard-code a brand color or font.
 - Static HTML pages: `<link rel="stylesheet" href="/styles/tokens.css">`, then use `rgb(var(--color-ink))`
   and `var(--font-heading)` in CSS
 - Next.js app: `app/globals.css` imports the tokens and `tailwind.config.ts` maps them to classes
-  (`bg-brand`, `text-brand-accent`, `text-ink/80`, `bg-surface`, `font-heading`, `font-body`)
-- Colors are stored as RGB channels (`105 114 125`) so Tailwind opacity modifiers work
+  (`bg-brand`, `bg-brand-accent`, `text-highlight`, `bg-soft`, `text-ink/80`, `bg-surface`,
+  `rounded-brand`, `font-heading`, `font-body`)
+- Colors are stored as RGB channels (`35 65 47`) so Tailwind opacity modifiers work
 - To add a token: add the variable to `tokens.css`, then map it in `tailwind.config.ts`
 
-Current values: brand #69727d, brand-accent #5bc0de, ink #69727d, surface #ffffff, Montserrat for
-headings, Open Sans for body. These are the template defaults and not yet a final brand palette.
+Approved brand palette (locked in by the owner; change only when they ask):
+
+| Token | Value | Use |
+|---|---|---|
+| brand (pine) | #23412f | Primary brand color, dark bands, secondary buttons |
+| brand-accent (ember) | #c4531f | Main call-to-action buttons, eyebrow labels |
+| highlight (aspen gold) | #e2a93b | Accents on dark backgrounds, focus rings |
+| ink | #1f2420 | Text, footer background |
+| soft | #eef1ea | Soft section and chip backgrounds |
+| surface | #ffffff | Page background |
+
+Fonts: Bricolage Grotesque for headings, Figtree for body. Corner radius: 12px.
+Layout inspiration: Hipcamp (photo-led hero with a search bar, campsite card grid).
 
 ## Secrets and environment
 
